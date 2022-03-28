@@ -25,25 +25,17 @@ bool palindrome_iterative(std::string s)
     int n = s.size(); // the size of the given string
     int flag = 1; // value to determine whether the string is a palindrome or not
 
-    // using for loop with iterator from the starting index by comparing it with the last, and increment the iterator
+    // loop from the starting index by comparing it with the last, and increment the iterator
     for(int i = 0; i <= n/2; i++)
     {
         // if they don't match, then the string is not a palindrome
         if(s[i] != s[n-i-1])
         {
             flag = 0;
-            break;
+            return false;
         }
     }
-    // it is a palindrome
-    if(flag == 1) {
-         
-        return true;
-    }
-    // it is not a palindrome
-    else {
-        return false;
-    }
+    return true;
 }
 
 int main()
