@@ -22,13 +22,11 @@ bool palindrome_recursion(std::string s, int start, int end)
 // Iterative
 bool palindrome_iterative(std::string s)
 {
-    int n = s.size(); // the size of the given string
-
     // loop from the starting index by comparing it with the last, and increment the iterator
-    for(int i = 0; i <= n/2; i++)
+    for(int i = 0; i <= s.length()/2; i++)
     {
         // if they don't match, then the string is not a palindrome
-        if(s[i] != s[n-i-1])
+        if(s[i] != s[s.length()-i-1])
         {
             return false;
         }
