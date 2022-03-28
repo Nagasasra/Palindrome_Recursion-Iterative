@@ -4,16 +4,16 @@
 // Recursion
 bool palindrome_recursion(std::string s, int start, int end)
 {
-    // the base case, if it reaches here then it is a palindrome
-    if(start == end)
+    // The base case, if it reaches here then it is a palindrome
+    if(start == end || s.length() == 0)
     {
         return true;
     }
-    // if they don't match, then it is not a palindrome
+    // If they don't match, then it is not a palindrome
     if (s[start] != s[end]) {
         return false;
     }
-    // If there are more than two characters, check if middle substring is also palindrome or not.
+    // If there are more than two characters, check if middle substring is also palindrome or not
     if (start < end+1) {
         return palindrome_recursion(s, start+1, end-1);
     }
@@ -22,10 +22,10 @@ bool palindrome_recursion(std::string s, int start, int end)
 // Iterative
 bool palindrome_iterative(std::string s)
 {
-    // loop from the starting index by comparing it with the last, and increment the iterator
+    // Loop and increment the iterator
     for(int i = 0; i <= s.length()/2; i++)
     {
-        // if they don't match, then the string is not a palindrome
+        // If they don't match, then the string is not a palindrome
         if(s[i] != s[s.length()-i-1])
         {
             return false;
@@ -36,11 +36,11 @@ bool palindrome_iterative(std::string s)
 
 int main()
 {
-   std::string s; // creating new variable
-   std::cout << "Input here : "; // print this to let the user know they can input something
+   std::string s; // Creating new variable for the string input
+   std::cout << "Input here : "; // Print this to let the user know they can input something
    std::cin >> s;
 
-   // check with recursion and iterative
+   // Check with recursion and iterative
    std::cout << "\nRESULT\nRecursion: " << std::boolalpha << palindrome_recursion(s, 0, s.length()-1) << "\nIterative: " << palindrome_iterative(s) << std::endl;
 
    return 0;
