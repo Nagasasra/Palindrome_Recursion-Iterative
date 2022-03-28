@@ -12,13 +12,11 @@ bool palindrome_recursion(std::string s, int start, int end)
 
     else
     {
-
-        // if the start and end matches, run the same function with index first+1 and end-1 until left with 1 letter or no letter
+        // if the start and end matches, run the same function with index first+1 and end-1 until left with 1 letter
         if(s[start] == s[end])
         {
             return palindrome_recursion(s, start + 1, end - 1); 
         }
-
         // if they don't match, then it is not a palindrome
         else
         {
@@ -42,14 +40,12 @@ bool palindrome_iterative(std::string s)
             flag = 0;
             break;
         }
-        
     }
-    // Yes, it is a palindrome!
+    // Yes, it is a palindrome
     if(flag == 1) {
          
         return true;
     }
-
     // No, it is not a palindrome
     else {
         return false;
@@ -58,8 +54,8 @@ bool palindrome_iterative(std::string s)
 
 int main()
 {
-   std::string s;
-   std::cout << "Input here : ";
+   std::string s; // creating new variable for the inputted string
+   std::cout << "Input here : "; // print this to let the user know they can input something
    std::cin >> s;
 
    // check with recursion and iterative
