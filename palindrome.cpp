@@ -1,37 +1,31 @@
 #include <iostream>
 #include <string>
 
-// recursion
+// Recursion
 bool palindrome_recursion(std::string s, int start, int end)
 {
     // the base case, if it reaches here then it is a palindrome
-    if(end-start == 1 || start == end)
+    if(start == end)
     {
         return true;
     }
-
-    else
-    {
-        // if the start and end matches, run the same function with index first+1 and end-1 until left with 1 letter
-        if(s[start] == s[end])
-        {
-            return palindrome_recursion(s, start + 1, end - 1); 
-        }
-        // if they don't match, then it is not a palindrome
-        else
-        {
-            return false;
-        }
+    // if they don't match, then it is not a palindrome
+    if (s[start] != s[end]) {
+        return false;
+    }
+    // If there are more than two characters, check if middle substring is also palindrome or not.
+    if (start < end + 1) {
+        return palindrome_recursion(s, start + 1, end - 1);
     }
 }
 
-// iterative
+// Iterative
 bool palindrome_iterative(std::string s)
 {
     int n = s.size(); // the size of the given string
     int flag = 1; // value to determine whether the string is a palindrome or not
 
-    // using for loop with iterator from the starting index by comparing it with the last, and increment the iterator value after that if it is the same
+    // using for loop with iterator from the starting index by comparing it with the last, and increment the iterator
     for(int i = 0; i <= n/2; i++)
     {
         // if they don't match, then the string is not a palindrome
@@ -41,12 +35,12 @@ bool palindrome_iterative(std::string s)
             break;
         }
     }
-    // Yes, it is a palindrome
+    // it is a palindrome
     if(flag == 1) {
          
         return true;
     }
-    // No, it is not a palindrome
+    // it is not a palindrome
     else {
         return false;
     }
@@ -54,7 +48,7 @@ bool palindrome_iterative(std::string s)
 
 int main()
 {
-   std::string s; // creating new variable for the inputted string
+   std::string s; // creating new variable
    std::cout << "Input here : "; // print this to let the user know they can input something
    std::cin >> s;
 
