@@ -14,8 +14,8 @@ bool palindrome_recursion(std::string s, int start, int end)
         return false;
     }
     // If there are more than two characters, check if middle substring is also palindrome or not.
-    if (start < end + 1) {
-        return palindrome_recursion(s, start + 1, end - 1);
+    if (start < end+1) {
+        return palindrome_recursion(s, start+1, end-1);
     }
 }
 
